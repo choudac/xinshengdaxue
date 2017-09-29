@@ -16,10 +16,11 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import url(http://fonts.googleapis.com/css?family=Roboto);
 
 
  .jumbotron {
-  background-image:url('https://ws3.sinaimg.cn/large/006tNc79gy1fgmuvsj4ojj30b408c775.jpg');
+  background-image:url('https://ws4.sinaimg.cn/large/006tKfTcgy1fjy7qv1sqcj31kw11xkjn.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -31,14 +32,14 @@
   text-align: center;
   margin-top: 200px;
   margin-bottom: 80px;
-  color: white;
+  color: black;
 }
 
 .slogan {
   margin-top: 10px;
   margin-bottom: 50px;
   text-align: center;
-  color: white;
+  color: black;
   top: 12px;
 }
 
@@ -161,4 +162,35 @@
 
 .login-help{
   font-size: 12px;
+}
+
+//交流论坛头像和字体。
+.main-header {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin-bottom: 30px;
+  font-size: 24px;
+  text-align: left;
+  background-color: #6f5499;
+}
+
+.main-header h1 {
+  margin-top: 0;
+  color: #fff;
+}
+
+.words-pannel {
+  margin-top: 10px;
+}
+
+.avatar {
+  height: 48px;
+  width: 48px;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
+  border-radius: 10px;
+  float: left;
+  margin-right: 18px;
+  cursor: default;
 }

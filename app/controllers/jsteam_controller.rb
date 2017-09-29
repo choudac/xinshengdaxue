@@ -1,0 +1,2 @@
+class JsteamController < ApplicationController
+end

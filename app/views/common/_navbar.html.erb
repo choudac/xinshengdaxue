@@ -4,11 +4,12 @@
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/"><img src='https://ws3.sinaimg.cn/large/006tNbRwgy1fgkt2cjjr4j303303gjrh.jpg'>裕力健康管理</a>
+            <a class="navbar-brand" href="/"><img src='https://ws1.sinaimg.cn/large/006tNc79gy1fjy5r1qatqj3018019jr7.jpg'>新生大学交流区</a>
         </div>
 
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
+              <li><a href="/groups" data-toggle="modal">交流论坛</a></li>
               <% if !current_user %>
                   <li><a href="#" data-toggle="modal" data-target="#signup-modal">注册</a></li>
                   <li><a href="#" data-toggle="modal" data-target="#login-modal">登入</a></li>
@@ -19,9 +20,14 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li> <%= link_to("My Groups", account_groups_path) %></li>
-                        <li> <%= link_to("My Posts", account_posts_path) %></li>
+                        <li> <%= link_to("我的讨论组", account_groups_path) %></li>
+                        <li> <%= link_to("我发表的文章", account_posts_path) %></li>
                         <li class="divider"> </li>
+
+                        <% if current_user.admin? %>
+                           <li> <%= link_to('管理员面板', admin_groups_path) %></li>
+                        <% end %>
+
                         <li> <%= link_to("退出", destroy_user_session_path, method: :delete) %> </li>
                     </ul>
                   </li>
@@ -42,7 +48,7 @@
            <%= f.input :password, required: false %>
            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
          </div>
-         <div class="form-actions">
+         <div class="form-actions" data-target="#signup-modal" data-toggle="modal">
            <%= f.button :submit, "Log in" %>
          </div>
        <% end %>

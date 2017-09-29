@@ -14,5 +14,13 @@ Rails.application.routes.draw do
     resources :groups
     resources :posts
   end
+
+
+    namespace :admin do
+      resources :groups
+    end
+
+  resources :team
+  resources :jsteam
   root 'welcome#index'
 end

@@ -1,0 +1,60 @@
+
+<div >
+  <img src="https://ws3.sinaimg.cn/large/006tNc79gy1fjz60hqkzuj31780fqqkl.jpg" width = "100%" >
+</div>
+
+<br>
+<br>
+
+<div id="app">
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="words-pannel" v-for="item in wordsList">
+            <table class="table">
+              <div class="media">
+              <tbody>
+                  <tr>
+                    <td>
+                      <a href="#">
+                        <img class="media-object avatar" v-bind:src="item.avatar" alt="...">
+                      </a>
+                    </td>
+                      <td class="col-md-2">  {{ item.name }} </td>
+                      <td class="col-md-12"> {{ item.words }} </td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+ </div>
+
+
+<script>
+// vue官网： https://cn.vuejs.org/v2/guide/
+// 初始化Vue
+
+var app = new Vue({
+  el: '#app',   // #app 和html中div#id的 app 对应
+  data: {
+    wordsList: []  // 变量wordsList可以在html使用
+  },
+  methods: {
+    fetchData: function() {
+      axios.get('https://js.xinshengdaxue.com/api/v1/learnJS/course/1/words')
+        .then(function (response) {
+          app.wordsList = response.data.words;
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    },
+
+  }
+});
+
+app.fetchData();
+</script>
